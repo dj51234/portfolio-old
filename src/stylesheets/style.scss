@@ -1,31 +1,345 @@
-@import '~normalize.css/normalize.css';
 @import './base';
 @import './media';
-@import './fonts';
 
 // custom styles
 
 html {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100%;
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
 }
 
-a {
-  position: relative;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: inline-block;
+.social {
+  position: fixed;
+  left: 5rem;
+  bottom: 5rem;
+  z-index: 1;
 
-  img {
-    display: inline-block;
-    vertical-align: middle;
-    width: 80px;
+  @include medium {
+    display: none;
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    a {
+      color: $grey;
+      font-size: 2.5rem;
+      transform: translateY(0) scale(1);
+      transition: 0.2s ease;
+
+      &:hover {
+        color: $blue;
+        transform: translateY(-0.2rem) scale(1.01);
+      }
+    }
+  }
+}
+
+header {
+  height: 100vh;
+  position: relative;
+
+  .flex-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 5rem;
+    position: absolute;
+    width: 100%;
+  }
+
+  .mobile-toggle {
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: none;
+
+    @include medium {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    span {
+      height: 3px;
+      background-color: $blue;
+      transition: 0.2s ease-in-out;
+    }
+
+    &.toggled {
+      justify-content: center;
+    }
+
+    &.toggled span {
+      &:first-child {
+        transform: rotate(45deg) translateY(50%);
+        // transform-origin: top left;
+      }
+      &:nth-child(2) {
+        display: none;
+      }
+      &:last-child {
+        transform: rotate(-45deg) translateY(-50%);
+        // transform-origin: bottom left;
+      }
+    }
+  }
+
+  .logo {
+    z-index: 2;
+  }
+
+  .logo h1 {
+    font-size: 3rem;
+    transform: scale(-1, 1);
+    letter-spacing: -3px;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    background-color: $dark-blue;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transition: 0.2s ease-in-out;
+    transform: translateX(100%);
+    display: none;
+    z-index: 1;
+
+    @include medium {
+      display: block;
+    }
+
+    .social-mobile {
+      .icons {
+        display: flex;
+        gap: 2rem;
+      }
+      a {
+        font-size: 2.5rem;
+      }
+    }
+
+    &.toggled {
+      transform: translateX(0%);
+    }
+
+    ul {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        font-size: 2rem;
+        color: $grey;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+  }
+
+  .main-nav {
+    z-index: 1;
+    @include medium {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      gap: 6rem;
+
+      .nav-resume-btn {
+        border: 1px solid $blue;
+        color: $blue;
+        padding: 1rem 1.2rem;
+        font-size: 1.4rem;
+        font-family: $roboto-mono;
+
+        &:hover {
+          background: transparentize($blue, 0.8);
+        }
+      }
+
+      .nav-item {
+        color: $grey;
+        font-size: 1.4rem;
+        font-family: $roboto-mono;
+        position: relative;
+        display: inline-block;
+
+        &::before {
+          content: '';
+          width: 3px;
+          height: 80%;
+          background-color: $blue;
+          display: inline-block;
+          position: absolute;
+          left: -1.5rem;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+  }
+
+  .main-belt {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 100vw);
+    position: absolute;
+    transition: 0.5s ease-in-out;
+    transform: translateX(00vw);
+  }
+
+  .hero-wrapper,
+  .work-wrapper,
+  .experience-wrapper,
+  .contact-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+
+    &.in-view {
+      opacity: 1;
+    }
+
+    @include medium {
+      text-align: center;
+      padding: 0 2rem;
+      height: 100%;
+      padding-top: 10%;
+    }
+
+    h1 {
+      font-size: 7rem;
+      color: $light-blue;
+      &:nth-of-type(2) {
+        color: $blue;
+      }
+
+      @include medium {
+        font-size: 5rem;
+        margin: 2rem 0;
+      }
+    }
+
+    p.mono {
+      font-size: 1.6rem;
+      font-family: $roboto-mono;
+
+      @include medium {
+        font-size: 1.3rem;
+      }
+    }
+    p.normal {
+      font-size: 1.7rem;
+      line-height: 2.5rem;
+      color: $grey;
+      max-width: 70ch;
+      width: 100%;
+
+      @include medium {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+    }
+    .btn {
+      border: 1px solid $blue;
+      color: $blue;
+      padding: 1rem 1.2rem;
+      font-size: 1.4rem;
+      font-family: $roboto-mono;
+      display: inline-block;
+      margin-top: 2rem;
+
+      &:hover {
+        background: transparentize($blue, 0.8);
+      }
+    }
+  }
+
+  .about-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include medium {
+      text-align: center;
+      padding: 0 2rem;
+      height: 100%;
+      padding-top: 10%;
+    }
+
+    h1 {
+      font-size: 7rem;
+      color: $light-blue;
+      &:nth-of-type(2) {
+        color: $blue;
+      }
+
+      @include medium {
+        font-size: 5rem;
+        margin: 2rem 0;
+      }
+    }
+
+    p.mono {
+      font-size: 1.6rem;
+      font-family: $roboto-mono;
+
+      @include medium {
+        font-size: 1.3rem;
+      }
+    }
+    p.normal {
+      font-size: 1.7rem;
+      line-height: 2.5rem;
+      color: $grey;
+      max-width: 70ch;
+      width: 100%;
+
+      @include medium {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+    }
+    .btn {
+      border: 1px solid $blue;
+      color: $blue;
+      padding: 1rem 1.2rem;
+      font-size: 1.4rem;
+      font-family: $roboto-mono;
+      display: inline-block;
+      margin-top: 2rem;
+
+      &:hover {
+        background: transparentize($blue, 0.8);
+      }
+    }
   }
 }
