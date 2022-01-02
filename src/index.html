@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Derrick Johnson | Front End Developer</title>
@@ -21,11 +21,13 @@
         <a href=""><ion-icon name="logo-github"></ion-icon></a>
         <a href=""><ion-icon name="logo-linkedin"></ion-icon></a>
         <a href=""><ion-icon name="logo-codepen"></ion-icon></a>
+        <a href=""><ion-icon name="mail"></ion-icon></a>
       </div>
     </div>
     <header>
       <nav class="mobile-nav">
         <ul>
+          <li><a href="" class="mobile-nav-item" data-belt="0">Home</a></li>
           <li><a href="" class="mobile-nav-item" data-belt="1">About</a></li>
           <li><a href="" class="mobile-nav-item" data-belt="2">Work</a></li>
           <li><a href="" class="mobile-nav-item" data-belt="3">Experience</a></li>
@@ -37,6 +39,7 @@
                 <a href=""><ion-icon name="logo-github"></ion-icon></a>
                 <a href=""><ion-icon name="logo-linkedin"></ion-icon></a>
                 <a href=""><ion-icon name="logo-codepen"></ion-icon></a>
+                <a href=""><ion-icon name="mail"></ion-icon></a>
               </div>
             </div>
           </li>
@@ -44,11 +47,12 @@
       </nav>
       <div class="flex-nav">
         <div class="logo">
-          <h1>JD</h1>
+          <h1>DJ</h1>
         </div>
         <div class="mobile-toggle"><span></span><span></span><span></span></div>
         <nav class="main-nav">
           <ul>
+            <li><a href="" class="nav-item" data-belt="0">Home</a></li>
             <li><a href="" class="nav-item" data-belt="1">About</a></li>
             <li><a href="" class="nav-item" data-belt="2">Work</a></li>
             <li><a href="" class="nav-item" data-belt="3">Experience</a></li>
@@ -58,69 +62,89 @@
         </nav>
       </div>
       <div class="main-belt">
-        <div class="hero-wrapper in-view belt-section" data-belt="0">
+        <div class="hero-wrapper focused belt-section" data-belt="0">
           <div class="header-content">
             <p class="mono">Hello there, I'm</p>
             <h1>Derrick Johnson.</h1>
-            <h1>I Build Internet Stuff</h1>
+            <h1>I Build Internet Stuff.</h1>
             <p class="normal">
               I'm a Front End Developer that has a deep passion for the design aspects of coding. I
               love dissecting the anatomy of web pages and apps to add layers of creativity; helping
               applications come to life for the user. Also, I may be slightly addicted to coding 😅.
             </p>
-            <a href="" class="btn">See my work</a>
+            <a href="" class="btn nav-item" data-belt="1">About Me ></a>
           </div>
         </div>
         <div class="about-wrapper belt-section" data-belt="1">
           <div class="header-content">
-            <p class="mono">Hello there, I'm</p>
-            <h1>About</h1>
-            <h1>I Build Internet Stuff</h1>
+            <p class="mono">A little about me</p>
+            <h1>My Passion</h1>
             <p class="normal">
-              I'm a Front End Developer that has a deep passion for the design aspects of coding. I
-              love dissecting the anatomy of web pages and apps to add layers of creativity; helping
-              applications come to life for the user. Also, I may be slightly addicted to coding 😅.
+              I am a Front End Developer that started coding for fun in 2014.  I recently got out of the military where I was an <span>ISSO (Information Systems Security Officer)</span> and <span>Data Systems Administrator</span> performing tasks such as building servers and working in virtual environments.  I have experience as a <span>Creative Developer</span> and <span>Front End Developer</span> at multiple companies.  
             </p>
-            <a href="" class="btn">See my work</a>
+            <br>
+            <p class="normal">While working in <span></span>Cyber Security</span> was a rewarding career I couldn't stray too far away from web development.  I began coding in my off time while in the military and introduced coding to many of my peers where I was able to mentor them on the basics of HTML/CSS/JavaScript. My true passion lies in solving the everyday problems that come with coding and developing user experiences on the web.</p>
+            <a href="" class="btn nav-item" data-belt="2">See my work ></a>
           </div>
         </div>
         <div class="work-wrapper belt-section" data-belt="2">
           <div class="header-content">
-            <p class="mono">Hello there, I'm</p>
-            <h1>Work</h1>
-            <h1>I Build Internet Stuff</h1>
-            <p class="normal">
-              I'm a Front End Developer that has a deep passion for the design aspects of coding. I
-              love dissecting the anatomy of web pages and apps to add layers of creativity; helping
-              applications come to life for the user. Also, I may be slightly addicted to coding 😅.
-            </p>
-            <a href="" class="btn">See my work</a>
+            <p class="mono">Some of my work</p>
+            <div class="work-container">
+              <div class="thumbnails">
+                <a data-content="1" class="thumbnail-unit">
+                  
+                </a>
+                <a data-content="2" class="thumbnail-unit">
+                  
+                </a>
+                <a data-content="3" class="thumbnail-unit">
+                  
+                </a>
+                <a data-content="4" class="thumbnail-unit">
+                  
+                </a>
+              </div>
+            </div>
+            <a href="" class="btn nav-item" data-belt="3">See Experience ></a>
           </div>
         </div>
         <div class="experience-wrapper belt-section" data-belt="3">
           <div class="header-content">
-            <p class="mono">Hello there, I'm</p>
-            <h1>Experience</h1>
-            <h1>I Build Internet Stuff</h1>
-            <p class="normal">
-              I'm a Front End Developer that has a deep passion for the design aspects of coding. I
-              love dissecting the anatomy of web pages and apps to add layers of creativity; helping
-              applications come to life for the user. Also, I may be slightly addicted to coding 😅.
-            </p>
-            <a href="" class="btn">See my work</a>
+            <h1>My Experience</h1>
+            <div class="experience-container">
+              <ul class="experience-list">
+                <li><a href="" data-experience="2" class="active">Red Ventures</a></li>
+                <li><a href="" data-experience="1" class="">IMS</a></li>
+                <li><a href="" data-experience="3" class="">USMC</a></li>
+                <li><a href="" data-experience="4" class="">Linium</a></li>
+              </ul>
+              <div class="experience-content">
+                <h2 class="experience-title">Front End Developer @ Red Ventures</h2>
+                <p class="mono experience-date">May 2018 - Present</p>
+                <p class="normal experience-item">RV info 1 Write modern, performant, maintainable code for a diverse array of client and internal projects</p>
+                <p class="normal experience-item">RV info 2 Write modern, performant, maintainable code for a diverse array of client and internal projects</p>
+                <p class="normal experience-item">RV info 3 Write modern, performant, maintainable code for a diverse array of client and internal projects</p>
+              </div>
+            </div>
+            <a href="" class="btn nav-item" data-belt="4">Contact Me ></a>
           </div>
         </div>
         <div class="contact-wrapper belt-section" data-belt="4">
           <div class="header-content">
-            <p class="mono">Hello there, I'm</p>
+            <p class="mono">Get in touch with me</p>
             <h1>Contact</h1>
-            <h1>I Build Internet Stuff</h1>
+            <div class="social">
+              <div class="icons">
+                <a href=""><ion-icon name="logo-github"></ion-icon></a>
+                <a href=""><ion-icon name="logo-linkedin"></ion-icon></a>
+                <a href=""><ion-icon name="logo-codepen"></ion-icon></a>
+              </div>
+            </div>
             <p class="normal">
-              I'm a Front End Developer that has a deep passion for the design aspects of coding. I
-              love dissecting the anatomy of web pages and apps to add layers of creativity; helping
-              applications come to life for the user. Also, I may be slightly addicted to coding 😅.
+              I'd love to hear about the opportunities that we can experience together!  Just shoot me an email via the button below or get in touch on any of my social media outlets.  I hope to hear from you soon!
             </p>
-            <a href="" class="btn">See my work</a>
+            <a href="" class="btn" >Email Me</a>
           </div>
         </div>
       </div>
