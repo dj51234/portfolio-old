@@ -6,3 +6,4 @@
 - ~~Fill in content for experience section~~
 - Fill in work section with projects
 - Add resume
+- Change favicon color
