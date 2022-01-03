@@ -23,6 +23,10 @@ html {
   padding: 0;
 }
 
+ion-icon {
+  pointer-events: none;
+}
+
 body {
   background-color: $dark-blue;
   color: $blue;

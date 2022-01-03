@@ -44,7 +44,7 @@ body {
 }
 
 header {
-  height: 100vh;
+  min-height: 100%;
   position: relative;
 
   .flex-nav {
@@ -203,7 +203,7 @@ header {
   }
 
   .main-belt {
-    height: 100%;
+    min-height: 100%;
     display: grid;
     grid-template-columns: repeat(5, 100vw);
     position: absolute;
@@ -278,7 +278,6 @@ header {
       font-size: 1.4rem;
       font-family: $roboto-mono;
       display: inline-block;
-      margin-top: 2rem;
 
       &:hover {
         background: transparentize($blue, 0.8);
@@ -290,6 +289,21 @@ header {
     .mono {
       margin-bottom: 0;
     }
+
+    h1 {
+      font-size: 6rem;
+
+      @include medium {
+        font-size: 5rem;
+        line-height: 4rem;
+        margin: 2rem 0;
+      }
+
+      @include small {
+        line-height: 2rem;
+        font-size: 3rem;
+      }
+    }
   }
 
   .work-wrapper {
@@ -297,27 +311,94 @@ header {
       max-width: 80rem;
       width: 100%;
       margin-inline: 2rem;
-    }
-    .thumbnails {
-      display: flex;
-      justify-content: center;
 
+      .btn {
+        margin-top: 1.5rem;
+      }
+
+      .btn:first-of-type {
+        margin-right: 1rem;
+        border-color: $light-blue;
+        color: $light-blue;
+      }
+    }
+
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      width: 100%;
-      margin: 3rem 0;
+      margin-top: 1rem;
 
       .thumbnail-unit {
-        max-width: 25%;
-        width: 100%;
-        aspect-ratio: 1;
-        position: relative;
-        background: transparentize($grey, 0.9);
-        box-shadow: none;
+        height: 25rem;
+        background: $dark-blue;
+        box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.158);
         transition: 0.2s ease-in-out;
         cursor: pointer;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: relative;
+        z-index: 1;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url('../images/content_img_1.jpg');
+          opacity: 0.1;
+          z-index: 0;
+        }
 
         &:hover {
-          box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.219);
+          transform: translateY(-2px);
+        }
+
+        .top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: $grey;
+
+          ion-icon[name='desktop'] {
+            color: $blue;
+            font-size: 4rem;
+          }
+
+          .right {
+            font-size: 2.5rem;
+            z-index: 1;
+            a {
+              color: $grey;
+
+              &:hover {
+                color: $blue;
+                transform: translateY(-2px);
+              }
+            }
+          }
+        }
+        .text {
+          strong {
+            font-size: 1.4rem;
+            color: $light-blue;
+            display: inline-block;
+            margin-bottom: 1rem;
+          }
+          p {
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+          }
+        }
+        .tools {
+          color: $light-blue;
+          font-size: 1.5rem;
+          display: flex;
+          gap: 1rem;
         }
       }
     }
@@ -326,24 +407,42 @@ header {
   .experience-wrapper {
     text-align: left;
 
+    .btn {
+      margin-top: 2rem;
+    }
+
     h1 {
       font-size: 5rem;
       margin-block: 2rem;
+
+      @include medium {
+        font-size: 4rem;
+        line-height: 3rem;
+        margin: 2rem 0;
+      }
+
+      @include small {
+        line-height: 2rem;
+        font-size: 3rem;
+      }
     }
+
     .experience-container {
       display: flex;
       text-align: left;
+      max-width: 90rem;
+      width: 100%;
 
       @include medium {
         flex-direction: column;
       }
 
       .experience-list {
-        flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         font-size: 1.2rem;
+        padding-right: 5rem;
 
         @include medium {
           flex-direction: row;
@@ -356,12 +455,15 @@ header {
           position: relative;
           display: inline-block;
           padding-left: 1rem;
+          color: $grey;
 
+          &:hover {
+            color: $blue;
+          }
           @include medium {
             padding-left: 0;
             padding-bottom: 1rem;
           }
-          color: $grey;
 
           &::before {
             content: '';
@@ -391,19 +493,40 @@ header {
 
       .experience-content {
         flex: 2;
+
+        .experience-title {
+          color: $blue;
+
+          span {
+            color: $light-blue;
+          }
+        }
       }
 
       p.mono {
         font-size: 1.2rem;
+        margin: 1rem 0;
+        color: $grey;
       }
 
       p.normal {
         font-size: 1.5rem;
         line-height: 2rem;
         margin: 1rem 0;
+        position: relative;
+        padding-left: 1.4rem;
+        display: inline-block;
+
+        &::before {
+          content: '>';
+          position: absolute;
+          left: 0;
+          color: $blue;
+        }
       }
     }
   }
+
   .contact-wrapper {
     .social {
       position: relative;
@@ -421,7 +544,7 @@ header {
         display: flex;
         flex-direction: row;
         gap: 2rem;
-        margin: 2rem 0;
+        margin: 2rem 0 0.5rem;
 
         a {
           color: $grey;
